@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2023 at 02:58 PM
+-- Generation Time: Nov 28, 2023 at 05:22 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -18,38 +18,38 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `employees`
+-- Database: `student`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employees`
+-- Table structure for table `results`
 --
 
-CREATE TABLE `employees` (
+CREATE TABLE `results` (
   `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `full_name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL
+  `name` varchar(100) NOT NULL,
+  `class` varchar(20) NOT NULL,
+  `salary` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `employees`
+-- Dumping data for table `results`
 --
 
-INSERT INTO `employees` (`id`, `username`, `password`, `full_name`, `email`) VALUES
-(1, 'Akshay', '$2y$10$xHyod.OdfTvxenmAQCY8gOjIgRCDY.tRQeZZbGkPXkd.iary0nA5q', 'akshay2', 'akshaychame2@gmail.com');
+INSERT INTO `results` (`id`, `name`, `class`, `salary`) VALUES
+(27, 'Bhumika', 'Manager', '444'),
+(28, 'Jidd', 'Product', '5000000');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `employees`
+-- Indexes for table `results`
 --
-ALTER TABLE `employees`
+ALTER TABLE `results`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -57,10 +57,10 @@ ALTER TABLE `employees`
 --
 
 --
--- AUTO_INCREMENT for table `employees`
+-- AUTO_INCREMENT for table `results`
 --
-ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `results`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
