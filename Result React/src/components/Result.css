@@ -1,0 +1,60 @@
+/* ResultComponent.css */
+.result-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+  
+  .result-container h2 {
+    margin-bottom: 10px;
+  }
+  
+  .result-container p {
+    margin-bottom: 10px;
+  }
+  .header{
+   display: flex;
+    margin: auto;
+    justify-content: center;
+    row-gap: 2rem;
+    align-items: center;
+    column-gap: 3rem;
+  }
+  .content{
+    max-width:500px;
+    text-align: center;
+  }
+/* Add this CSS to your component's CSS file or a separate CSS file */
+table {
+  border-collapse: collapse;
+  border: 1px solid #ccc; /* Add a border around the table with 1px width */
+}
+
+td {
+  padding: 8px;
+  border: 1px solid #ccc; /* Add a border to table cells with 1px width */
+}
+
+/* Style the labels (first column) differently if needed */
+td:first-child {
+  font-weight: bold;
+}
+.box{
+  display: flex;
+  flex-direction: column;
+}
+.tb{
+  width: 80%;
+  margin: auto;
+  margin-top: 2rem;
+}
+.tb1{
+  margin-top: 2rem;
+}
+td input {
+  width: 50%; /* Set the input width to 100% of the cell width */
+}

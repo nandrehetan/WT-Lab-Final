@@ -29,7 +29,7 @@ function Login() {
       // If login is successful, set the username cookie
       Cookies.set('username', username);
       setMessage('Login successful!');
-      navigate('/');
+      navigate('/home');
     } catch (error) {
       console.error('Error during login:', error.message);
       setMessage('Invalid credentials. Please try again.');
