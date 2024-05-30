@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Light Control</title>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+  body,html{
+    height: 100%;
+  }
+
+  body{
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+  }
+
+  form{
+    margin: auto;
+    display: flex;
+    flex-direction:column;
+    position:relative;
+    padding-left: 10rem;
+  }
+
+  form:before{
+    content:'';
+    display: block;
+    width: 7.5rem;
+    height: 100%;
+    position:absolute;
+    left: 0;
+    top: 50%;
+    border:.5rem solid #ccc;
+    border-radius:99em;
+    transform:translateY(-50%);
+  }
+
+  input{
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+    width: 1px;
+    height: 1px;
+    white-space:nowrap;
+    overflow:hidden;
+    position:absolute;
+  }
+
+  label{
+    font-size: 8rem;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    line-height:1;
+    margin-left: -1.125em;
+    cursor:pointer;
+  }
+
+  label ~ label{
+    margin-top: 1rem;
+  }
+
+  label::first-letter{
+    color: transparent;
+  }
+
+  input:checked +label::first-letter{
+    color: #000;
+  }
+</style>
+</head>
+<body>
+<form>
+  <input type="radio" name="status" id="on" checked >
+  <label for="on" onclick="light()">On</label>
+  <input type="radio" name="status" id="off" >
+  <label id="off" for="off" onclick="night()">Off</label>
+</form>
+
+<script>
+  function night() {
+    var bodyStyle = document.body.style;   
+    bodyStyle.backgroundColor = "black";
+    bodyStyle.color = "white";
+    bodyStyle.transition = "1s";
+    document.querySelector("form").style.color = "black";
+  }
+
+  function light() {
+    var bodyStyle = document.body.style;   
+    bodyStyle.backgroundColor = "yellow";
+    bodyStyle.color = "black"; 
+    bodyStyle.transition = "1s";
+  }
+</script>
+
+</body>
+</html>

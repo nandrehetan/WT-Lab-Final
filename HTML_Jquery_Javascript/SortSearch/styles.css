@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 16px; /* Increase font size */
+    overflow: hidden;
+}
+
+header, footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+footer
+{
+    margin-top: -2%;
+}
+
+main {
+    padding: 20px;
+    max-width: 100%; /* Make main section cover full screen */
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px; /* Increase margin bottom for better spacing */
+    font-size: 18px; /* Increase font size */
+}
+
+input {
+    width: 100%;
+    padding: 10px; /* Increase padding */
+    margin-bottom: 20px; /* Increase margin bottom */
+    font-size: 16px; /* Increase font size */
+}
+
+.btn-group {
+    margin-bottom: 20px; /* Increase margin bottom */
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 24px; /* Increase padding */
+    cursor: pointer;
+    font-size: 16px; /* Increase font size */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.result {
+    background-color: #28a745;
+    color: #fff;
+    padding: 20px; /* Increase padding */
+    border-radius: 5px;
+    margin-top: 20px; /* Increase margin top */
+    font-size: 18px; /* Increase font size */
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}

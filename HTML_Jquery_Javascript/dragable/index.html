@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FDE49E;
+  }
+
+  /* Horizontal Navbar */
+  .navbar {
+    background-color: #6DC5D1;
+    overflow: hidden;
+  }
+
+  .navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 30px;
+    font-weight: bold;
+    text-decoration: none;
+
+  }
+
+  .navbar a:hover {
+    background-color: #DD761C;
+    color: black;
+  }
+  .nav-elements{
+   float: right;
+  }
+
+  /* Vertical Navbar */
+  .vertical-navbar {
+    width: 300px;
+    float: left;
+    background-color: #DD761C;
+    padding: 20px;
+    height: 100vh;
+    box-sizing: border-box;
+  }
+
+  .draggable {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #6DC5D1;
+    background-color: #FDE49E;
+    width: calc(100% - 22px);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .draggable:hover {
+    background-color: #FEB941;
+  }
+
+  /* Container */
+  #container {
+    width: calc(100% - 300px); /* Subtracting space for vertical navbar */
+    height: calc(100vh - 110px); /* Subtracting space for horizontal navbar */
+    padding: 10px;
+    border: 1px solid #AAAAAA;
+    float: left;
+    box-sizing: border-box;
+    background-color: #FDE49E;
+    overflow-y: auto;
+  }
+
+  #date {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+  }
+
+</style>
+<script>
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("text/plain", ev.target.id);
+  }
+
+  function drop(ev) {
+    ev.preventDefault();
+    let data = ev.dataTransfer.getData("text/plain");
+    let draggedElement = document.getElementById(data);
+    if (ev.target.id === "container") {
+      ev.target.appendChild(draggedElement.cloneNode(true));
+    } else {
+      draggedElement.parentNode.removeChild(draggedElement);
+    }
+  }
+
+  function makeDraggableAgain(ev) {
+    ev.target.setAttribute("draggable", "true");
+  }
+
+  function deleteElement(ev) {
+    ev.target.parentNode.removeChild(ev.target);
+  }
+
+  function getCurrentDate() {
+    let date = new Date();
+    let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
+  }
+</script>
+</head>
+<body>
+
+<!-- Horizontal Navbar -->
+<div class="navbar">
+  <a href="#" style="font-size: 30px;font-family:Verdana, Geneva, Tahoma, sans-serif">To-Do List</a>
+  <div class="nav-elements">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+  
+</div>
+
+<!-- Vertical Navbar -->
+<div class="vertical-navbar">
+  <div style="margin-bottom: 10px;text-align: center;font-weight: bold;">Task List</div>
+  <div id="drag1" class="draggable" draggable="true" ondragstart="drag(event)" ondragend="makeDraggableAgain(event)">Make EDI Project Report</div>
+  <div id="drag2" class="draggable" draggable="true" ondragstart="drag(event)" ondragend="makeDraggableAgain(event)">WT Lab assignment</div>
+  <div id="drag3" class="draggable" draggable="true" ondragstart="drag(event)" ondragend="makeDraggableAgain(event)">OS simulation</div>
+  <div id="drag3" class="draggable" draggable="true" ondragstart="drag(event)" ondragend="makeDraggableAgain(event)">OS simulation</div>
+  <div id="drag3" class="draggable" draggable="true" ondragstart="drag(event)" ondragend="makeDraggableAgain(event)">OS simulation</div>
+  <div id="drag3" class="draggable" draggable="true" ondragstart="drag(event)" ondragend="makeDraggableAgain(event)">OS simulation</div>
+  <div id="drag3" class="draggable" draggable="true" ondragstart="drag(event)" ondragend="makeDraggableAgain(event)">OS simulation</div>
+ 
+</div>
+
+<!-- Container for Draggable Items -->
+<div id="container" ondrop="drop(event)" ondragover="allowDrop(event)" onclick="deleteElement(event)">
+  <div id="date">
+    Tasks for today: <span id="currentDate"></span>
+  </div>
+</div>
+<span >(Drag to add task. Click on task to delete.)</span>
+
+<script>
+  // Update current date
+  document.getElementById('currentDate').innerText = getCurrentDate();
+</script>
+
+</body>
+</html>

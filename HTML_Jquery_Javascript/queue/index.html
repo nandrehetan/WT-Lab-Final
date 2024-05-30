@@ -1,0 +1,81 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linear Queue Animation</title>
+<style>
+  .queue-container {
+    width: 400px;
+    height: 100px;
+    border: 1px solid #000;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .queue-element {
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    border: 1px solid #000;
+    position: absolute;
+    transition: all 0.5s ease;
+  }
+  .heading{
+    text-align: center;
+    background-color: #5ba4f2;
+    padding:30px 0px;
+    margin-top: 0px;
+  }
+</style>
+</head>
+<body>
+    <div>
+        <h1 class="heading">Simulation of Linear Queue</h1>
+        </div>
+<div class="queue-container">
+  <!-- Queue elements will be added here -->
+</div>
+
+<button onclick="enqueue()">Enqueue</button>
+<button onclick="dequeue()">Dequeue</button>
+
+<script>
+  let queue = [];
+  let queueContainer = document.querySelector('.queue-container');
+
+  function enqueue() {
+    let newElement = document.createElement('div');
+    newElement.className = 'queue-element';
+    newElement.textContent = queue.length + 1;
+    let lastElement = queue.length > 0 ? queue[queue.length - 1] : null;
+    let lastElementRight = lastElement ? parseInt(lastElement.style.right) : 0;
+    newElement.style.right = (lastElementRight + 50) + 'px';
+    queueContainer.appendChild(newElement);
+    queue.push(newElement);
+  }
+
+  function dequeue() {
+    if (queue.length === 0) {
+      alert('Queue is empty!');
+      return;
+    }
+    let dequeuedElement = queue.shift();
+    dequeuedElement.remove();
+    repositionElements();
+  }
+
+  function repositionElements() {
+    queue.forEach((element, index) => {
+      element.textContent = index + 1;
+      element.style.right = (index * 50) + 'px';
+    });
+  }
+</script>
+
+</body>
+</html>

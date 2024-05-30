@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LED Simulation for NAND gate</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .input-container {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .input-label {
+    margin-right: 10px;
+  }
+
+  .input-select {
+    padding: 5px;
+    font-size: 16px;
+  }
+
+  .output {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  .output-led {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ccc;
+  }
+
+  .on {
+    background-color: #0f0;
+  }
+
+  .off {
+    background-color: #f00;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th, td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #333;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <h1>LED Simulation for NAND gate</h1>
+</nav>
+
+<div class="container">
+  <div class="input-container">
+    <span class="input-label">Input A:</span>
+    <select class="input-select" id="inputA" onchange="updateOutput()">
+      <option value="0">0</option>
+      <option value="1">1</option>
+    </select>
+  </div>
+  <div class="input-container">
+    <span class="input-label">Input B:</span>
+    <select class="input-select" id="inputB" onchange="updateOutput()">
+      <option value="0">0</option>
+      <option value="1">1</option>
+    </select>
+  </div>
+  <div class="output">
+    <div id="outputLED" class="output-led"></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Input A</th>
+        <th>Input B</th>
+        <th>Output</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  function updateOutput() {
+    var inputA = parseInt(document.getElementById("inputA").value);
+    var inputB = parseInt(document.getElementById("inputB").value);
+    var outputLED = document.getElementById("outputLED");
+
+    if (inputA === 1 && inputB === 1) {
+      outputLED.className = "output-led off";
+    } else {
+      outputLED.className = "output-led on";
+    }
+  }
+</script>
+
+</body>
+</html>

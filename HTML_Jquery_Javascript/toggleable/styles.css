@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color:bisque;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+p {
+    color: #666;
+    margin-bottom: 10px;
+}
+ul {
+    list-style-type: disc;
+    color: #666;
+    margin-left: 20px;
+}
+
+.container {
+    max-width: 800px;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+.nav-tabs {
+    background-color: #007bff; /* Change tab background color */
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.nav-link {
+    color: #fff; /* Change tab text color */
+    font-size: 20px; /* Increase tab font size */
+    margin-right: 10px; /* Add some spacing between tabs */
+}
+
+.nav-link.active {
+    font-weight: bold;
+    color: #000; /* Change selected tab text color */
+    background-color: #fff; /* Change selected tab background color */
+    border-color: #007bff; /* Change selected tab border color */
+}
+
+.tab-pane {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.advantages {
+    margin-top: 30px;
+}
+
+.advantage {
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.advantage h3 {
+    color: #007bff;
+    margin-top: 0;
+}

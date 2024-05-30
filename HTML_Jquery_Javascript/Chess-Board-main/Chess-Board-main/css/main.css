@@ -1,0 +1,78 @@
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#chessBoardLabel-v {
+  float: left;
+  margin: 3em 0em;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#inner-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#chessBoardLabel-h {
+  display: flex;
+  margin: 0em 0.5em;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#chessBoard {
+  height: 25em;
+  width: 25em;
+  display: flex;
+  flex-wrap: wrap;
+  border: 0.5em solid #962c1c;
+  border-radius: 0.35em;
+}
+
+.label {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+}
+
+.block {
+  height: 50px;
+  width: 50px;
+}
+
+.block:hover::after {
+  content: "\2654";
+  display: block;
+  color: #aaa9ad;
+  padding: 0px 5px;
+  font-weight: bold;
+  font-size: 2.5em;
+  cursor: pointer;
+}
+
+@media (max-width: 720px) {
+  main {
+    display: initial;
+    position: relative;
+  }
+  #container {
+    position: absolute;
+    left: -2rem;
+    top: -2rem;
+    transform: scale(0.75);
+  }
+}
+@media (max-width: 520px) {
+    #container {
+        position: absolute;
+        left: -5rem;
+        top: -6rem;
+        transform: scale(0.5);
+      }
+}

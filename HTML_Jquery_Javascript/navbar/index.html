@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background: #333;
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: inline-block;
+      width: 150px;
+      height: auto;
+    }
+
+    .nav-links {
+      display: flex;
+    }
+
+    .nav-link {
+      margin-left: 20px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    .menu-icon {
+      display: none;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        position: absolute;
+        top: 55px;
+        left: 0;
+        background: #333;
+        padding: 20px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-link {
+        margin: 10px 0;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <img src="your-logo.png" alt="Logo">
+  </div>
+
+  <div class="menu-icon" onclick="toggleMenu()">
+    <img src="menu-icon.png" alt="Menu">
+  </div>
+
+  <div class="nav-links">
+    <a href="#" class="nav-link">Home</a>
+    <a href="#" class="nav-link">About</a>
+    <a href="#" class="nav-link">Services</a>
+    <a href="#" class="nav-link">Contact</a>
+  </div>
+</nav>
+
+<script>
+  function toggleMenu() {
+    var navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Items</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 8px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            margin-bottom: 20px;
+        }
+
+        li {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #list1 li {
+            border-left: 5px solid #007bff;
+        }
+
+        #list2 li {
+            border-left: 5px solid #28a745;
+        }
+
+        #list1,
+        #list2 {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Enter List Items:</h2>
+    <input type="text" id="itemInput" placeholder="Enter list item">
+    <button id="addItem">Add Item</button>
+    <button id="copyItems">Copy Items</button>
+
+    <h2>User List (list1):</h2>
+    <ul id="list1">
+    </ul>
+
+    <h2>Copied List (list2):</h2>
+    <ul id="list2">
+    </ul>
+
+    <script>
+        $(document).ready(function () {
+            // Add item to list1 from input field
+            $('#addItem').click(function () {
+                var listItem = $('#itemInput').val();
+                if (listItem) {
+                    $('#list1').append('<li>' + listItem + '</li>');
+                    $('#itemInput').val('');
+                }
+            });
+
+            // Copy list items from list1 to list2
+            $('#copyItems').click(function () {
+                $('#list2').empty();
+                $('#list1 li').each(function () {
+                    $('#list2').append($(this).clone());
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
