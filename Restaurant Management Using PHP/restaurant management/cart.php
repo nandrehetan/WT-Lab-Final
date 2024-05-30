@@ -21,6 +21,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["remove_from_cart"])) {
     }
 }
 
+// Handle ordering food
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["order_food"])) {
+    // Here you can add logic to process the order, such as saving it to the database
+    // For now, we will just clear the cart
+    
+    // Clear the cart after ordering
+    echo "<script>alert('Food ordered successfully!');</script>";
+    $_SESSION["cart"] = [];
+}
+
+function calculateTotalPrice($cart) {
+    $total_price = 0;
+
+    foreach ($cart as $item_name => $item_data) {
+        $total_price += ($item_data["price"] * $item_data["quantity"]);
+    }
+
+    return $total_price;
+}
 ?>
 
 <!DOCTYPE html>
@@ -55,6 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["remove_from_cart"])) {
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            margin-top: 20px;
         }
 
         .order-btn:hover {
@@ -107,28 +127,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["remove_from_cart"])) {
             echo "</table>";
             $total_price = calculateTotalPrice($_SESSION["cart"]);
             echo "<p>Total Price: ₹" . number_format($total_price, 2) . "</p>";
-            echo "<button class='order-btn' onclick='orderFood()'>Order Food</button>";
+            echo "<form method='post' action=''>
+                    <button class='order-btn' name='order_food' type='submit'>Order Food</button>
+                  </form>";
         } else {
             echo "<p>Your cart is empty.</p>";
         }
-
-        function calculateTotalPrice($cart) {
-            $total_price = 0;
-
-            foreach ($cart as $item_name => $item_data) {
-                $total_price += ($item_data["price"] * $item_data["quantity"]);
-            }
-
-            return $total_price;
-        }
         ?>
     </div>
-
-    <script>
-        function orderFood() {
-            alert("Food ordered!");
-            // Additional logic for order processing can be added here
-        }
-    </script>
 </body>
 </html>
